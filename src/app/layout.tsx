@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Breadit",
@@ -22,6 +23,8 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+
+        <Toaster />
       </body>
     </html>
   );
