@@ -5,9 +5,9 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { FC } from "react";
 
-const page: FC = () => {
+const SignInPage: FC = () => {
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 bg-zinc-50">
       <div className="flex flex-col items-center justify-center h-full max-w-2xl gap-20 mx-auto">
         <Link
           href="/"
@@ -20,10 +20,12 @@ const page: FC = () => {
           Home
         </Link>
 
-        <SignIn />
+        <div className="border border-zinc-200 rounded-md">
+          <SignIn />
+        </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default SignInPage;
