@@ -1,8 +1,13 @@
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { Icons } from "./Icons";
 import { buttonVariants } from "./ui/Button";
+import { UserAccountMenu } from "./UserAccountMenu";
+// import SearchBar from "./SearchBar";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getServerSession(authOptions);
   return (
     <div className="fixed top-0 inset-x-0 h-fit bg-zinc-100 border-b border-zinc-300 z-[10] py-2">
       <div className="container flex items-center justify-between h-full gap-2 mx-auto max-w-7xl">
@@ -15,10 +20,16 @@ const Navbar = () => {
         </Link>
 
         {/* search bar */}
+        {/* <SearchBar /> */}
 
-        <Link href="/sign-in" className={buttonVariants()}>
-          Sign In
-        </Link>
+        {/* actions */}
+        {session?.user ? (
+          <UserAccountMenu user={session.user} />
+        ) : (
+          <Link href="/sign-in" className={buttonVariants()}>
+            Sign In
+          </Link>
+        )}
       </div>
     </div>
   );

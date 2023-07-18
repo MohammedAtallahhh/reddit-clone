@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body>
+        {/* @ts-expect-error Server Component */}
         <Navbar />
         {children}
 
